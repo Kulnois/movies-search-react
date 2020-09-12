@@ -1,13 +1,16 @@
 import React from 'react';
-import { CardList } from './components/card-list/card-list.component';
-import { SearchBox } from './components/search-box/search-box.component'; 
+import { Switch, Route } from 'react-router-dom';
+
+import SearchPage from './pages/search/search.component';
+import DetailPage from './pages/detail/detail.component';
 
 function App() {
   return (
     <div>
-      <h1>Hello Movies Search</h1>
-      <SearchBox />
-      <CardList />
+      <Switch>
+        <Route exact path='/' component={SearchPage} />        
+        <Route path='/detail/:id' component={DetailPage} />
+      </Switch>
     </div>
   );
 }
