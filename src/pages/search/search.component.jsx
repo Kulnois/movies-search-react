@@ -19,15 +19,22 @@ const SearchPage = () => {
             .catch(error => setErrorMessage(`Error de conexión, por favor compruebe su conexión a internet --${error.message}--`))
     };
 
+    const renderContent = () => {
+        if (errorMessage) {            
+            return <h3>{errorMessage}</h3>;
+        } else if (movies.length > 0) {
+            return <CardList movies={movies} />;
+        } else {
+            return <h3>Buscando robots...</h3>;
+        }
+    }
+
 
     return (
         <div>
             <h1>Movies Search</h1>
             <SearchBox />
-            <CardList />
-            {movies.map(movie => (
-                <div key={movie.imdbID}>{movie.Title}</div>
-            ))}
+            {renderContent()}
         </div>
     );
 };

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Card } from '../card/card.component';
 
-export const CardList = () => (
+export const CardList = ({ movies }) => (
     <div>
-        CARD LIST
-        <Card />
+        {
+            movies.map(movie => (
+                <Card key={movie.imdbID} movie={movie} />
+            ))
+        }
     </div>
 );
