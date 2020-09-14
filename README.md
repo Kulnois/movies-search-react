@@ -1,68 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Movie Search](https://kulnois.github.io/movies-search-react)
 
-## Available Scripts
+![Product Gif](screenshots/movies-search-react.gif)
 
-In the project directory, you can run:
+Proyecto de React Simple con Hooks donde consumo la API de [omdbapi](http://www.omdbapi.com/) con fetch la cual nuestra una lista de películas, permite buscar películas  por nombre y el detalle de una película; para el trabajar con el css de la web se implemento [styled-components](https://styled-components.com/) y para las rutas [react-router-dom](https://reactrouter.com/web/guides/quick-start).
 
-### `npm start`
+[Ver](https://kulnois.github.io/movies-search-react).
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Recursos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+* [React](https://reactjs.org/)
+* [Hooks](https://reactjs.org/docs/hooks-intro.html)
+* [react-router-dom](https://reactrouter.com/web/guides/quick-start)
+* Peticiones a [API jsonplaceholder](http://www.omdbapi.com/) con fetch
+* Para trabjar con el css [styled-components](https://styled-components.com/)
+* El proyecto es creado con [Create React apps](https://github.com/facebook/create-react-app)
+* CSS puro sin ningun frameworks
 
-### `npm test`
+## Trabajar con styled-components
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Instalación
+`npm install --save styled-components`
 
-### `npm run build`
+### Implementación
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Como ejemplo vamos a ver como hacer la Caja de Busqueda de la APP; como me gusta tener separado los estilos de los archivos `js` vamos a crear los archivos, uno para el componente y otro para el estilo.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Comenzamos con el archivo de estilos el cual lo llamaremos `search-box.styles.jsx` y agregamos la información correspondiente.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```js
+import styled from 'styled-components';
 
-### `npm run eject`
+export const Input = styled.input`
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 350px;
+    line-height: 20px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    text-align: center;
+    font-size: 20px;
+`;
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Veamos qué temenos:
+- `import styled from 'styled-components'` Primero importamos la libreria `styled-components`.
+- `export const Input = styled.input` Y luego creamos nuestro Input el cual sera de `styled.input` para este caso pero puede ser cualquier otro elemento HTML `styled.h1`, `styled.p`, `styled.button` etc... y le agregamos las propiedades `css` correspondientes.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ahora creamos el componente el cual lo llamaremos `search-box.component.jsx` y agregamos la información correspondiente.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```js
+import React from 'react';
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+import { Input } from './search-box.styles';
 
-## Learn More
+export const SearchBox = ({ placeholder, handleChange }) => (
+    <div>
+        <Input 
+            type="search" 
+            className="search" 
+            placeholder={placeholder} 
+            onChange={handleChange} />
+    </div>
+);
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Veamos qué temenos:
+- `import React from 'react'` Primero importamos react `react`.
+- `import { Input } from './search-box.styles';` Procedemos a importar nuestro componente de estilo `Input`.
+- `<Input ...properties />` Y para finalizar agregamos los props de nuestro elemento el cual funcionara como la etiqueta HTML `<input />` con atributos como `placeholder` ya que en nuestro archivo de estilos la definimos como `input`;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Instalación
+1. [Download](../../archive/master.zip) o clonar el repositorio.
+2. Instalar dependencias con `npm install`.
 
-### Code Splitting
+## Server
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Desarrollo
 
-### Analyzing the Bundle Size
+Ejecutar `npm start` e ir al navegador a la ruta [http://localhost:3000](http://localhost:3000).
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Producción
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Ejecutar `npm run build` el cual le genera una carpeta `build` donde están los archivos estáticos los cuales ya puede subir a un servidor web.

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { CardDetail } from '../../components/card-detail/card-detail.component';
 
+import { SpinnerContainer, SpinnerOverlay } from '../../styles/Spinner.styles';
+
 const DetailPage = ({match}) => {
 
     
@@ -28,7 +30,9 @@ const DetailPage = ({match}) => {
         } else if (movie != null) {
             return <CardDetail movie={movie} />;
         } else {
-            return <h3>Buscando pelicula...</h3>;
+            return  <SpinnerOverlay>
+                        <SpinnerContainer />
+                    </SpinnerOverlay>;
         }
     }
 
