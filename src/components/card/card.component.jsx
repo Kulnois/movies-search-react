@@ -1,9 +1,10 @@
 import React from 'react';
-
+import { withRouter } from 'react-router-dom';
+ 
 import { Container, Image, Content, Title, Year } from './card.styles';
 
-export const Card = ({ movie }) => (
-    <Container>
+const Card = ({ movie, history, match }) => (
+    <Container onClick={() => history.push(`${match.url}detail/${movie.imdbID}`)}>
         <Image alt="movie" src={movie.Poster} />
         <Content>
             <Title>{movie.Title}</Title>
@@ -11,3 +12,5 @@ export const Card = ({ movie }) => (
         </Content>
     </Container>
 );
+
+export default withRouter(Card);

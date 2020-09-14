@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import { SearchBox } from '../../components/search-box/search-box.component';
 import { CardList } from '../../components/card-list/card-list.component';
 
+import { Title } from './search.styles';
+
 const SearchPage = () => {
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -25,14 +27,14 @@ const SearchPage = () => {
         } else if (movies.length > 0) {
             return <CardList movies={movies} />;
         } else {
-            return <h3>Buscando robots...</h3>;
+            return <h3>Buscando peliculas...</h3>;
         }
     }
 
 
     return (
         <div>
-            <h1>Movies Search</h1>
+            <Title>Movies Search</Title>
             <SearchBox />
             {renderContent()}
         </div>
