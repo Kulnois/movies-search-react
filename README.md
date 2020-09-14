@@ -4,14 +4,14 @@
 
 Proyecto de React Simple con Hooks donde consumo la API de [omdbapi](http://www.omdbapi.com/) con fetch la cual nuestra una lista de películas, permite buscar películas  por nombre y el detalle de una película; para el trabajar con el css de la web se implemento [styled-components](https://styled-components.com/) y para las rutas [react-router-dom](https://reactrouter.com/web/guides/quick-start).
 
-[Ver](https://kulnois.github.io/movies-search-react).
+[Ver Movie Search](https://kulnois.github.io/movies-search-react).
 
 ### Recursos
 
 * [React](https://reactjs.org/)
 * [Hooks](https://reactjs.org/docs/hooks-intro.html)
 * [react-router-dom](https://reactrouter.com/web/guides/quick-start)
-* Peticiones a [API jsonplaceholder](http://www.omdbapi.com/) con fetch
+* Peticiones a [API omdbapi](http://www.omdbapi.com/) con fetch
 * Para trabjar con el css [styled-components](https://styled-components.com/)
 * El proyecto es creado con [Create React apps](https://github.com/facebook/create-react-app)
 * CSS puro sin ningun frameworks

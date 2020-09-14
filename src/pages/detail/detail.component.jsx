@@ -18,7 +18,7 @@ const DetailPage = ({match}) => {
     
 
     const fetchMovies = (idMovie) => {        
-        fetch(`http://www.omdbapi.com/?i=${idMovie}&apikey=d0cef94a`)
+        fetch(`https://www.omdbapi.com/?i=${idMovie}&apikey=d0cef94a`)
             .then(response => response.json())
             .then(data => data ? setMovie(data) : setErrorMessage('No se encontraron resultados') )
             .catch(error => setErrorMessage(`Error de conexión, por favor compruebe su conexión a internet --${error.message}--`))

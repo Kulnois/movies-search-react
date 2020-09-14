@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 
 import SearchPage from './pages/search/search.component';
 import DetailPage from './pages/detail/detail.component';
@@ -10,10 +10,10 @@ import './App.css';
 function App() {
   return (
     <div>
-      <Switch>
+      <HashRouter>
         <Route exact path='/' component={SearchPage} />        
         <Route path='/detail/:id' component={DetailPage} />
-      </Switch>      
+      </HashRouter>      
       <Footer />
     </div>
   );

@@ -17,7 +17,7 @@ const SearchPage = () => {
     
 
     const fetchMovies = (searchTerm) => {        
-        fetch(`http://www.omdbapi.com/?apikey=d0cef94a&s=${searchTerm}`)
+        fetch(`https://www.omdbapi.com/?apikey=d0cef94a&s=${searchTerm}`)
             .then(response => response.json())
             .then(data => data.Response === 'True' ? setMovies(data.Search) : setErrorMessage('No results found') )
             .catch(error => setErrorMessage(`Connection error, please check your internet connection -- ${error.message}--`))
